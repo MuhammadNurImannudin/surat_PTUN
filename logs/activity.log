@@ -1,0 +1,44 @@
+<?php
+// simpan sebagai fungsi di includes/logger.php
+function logActivity($action, $userId = null)
+{
+    $file = __DIR__ . '/../logs/activity.log';
+    $user = $userId ?? ($_SESSION['user']['username'] ?? 'guest');
+    $time = date('Y-m-d H:i:s');
+    $ip   = $_SERVER['REMOTE_ADDR'];
+    $line = "[{$time}] {$user} {$action} IP:{$ip}" . PHP_EOL;
+    file_put_contents($file, $line, FILE_APPEND | LOCK_EX);
+}
+?>[2025-08-27 05:05:11] Akses halaman Tambah Surat Masuk
+[2025-08-27 05:05:19] Akses halaman Tambah Surat Masuk
+[2025-08-27 05:05:46] Akses halaman Tambah Surat Masuk
+[2025-08-27 05:20:46] Akses halaman Tambah Surat Masuk
+[2025-08-27 05:23:41] Akses halaman Tambah Surat Masuk
+[2025-08-27 05:23:41] Tambah Surat Masuk: No Surat 123 dari asd
+[2025-08-28 05:41:09] Akses halaman Tambah Surat Masuk
+[2025-08-28 05:54:26] Akses halaman Tambah Surat Masuk
+[2025-08-28 05:54:59] Akses halaman Tambah Surat Masuk
+[2025-08-28 06:04:04] Akses halaman Tambah Surat Masuk
+[2025-08-28 06:08:26] Akses halaman Tambah Surat Masuk
+[2025-08-28 06:08:27] Akses halaman Tambah Surat Masuk
+[2025-08-28 06:08:31] Akses halaman Tambah Surat Masuk
+[2025-08-28 06:08:32] Akses halaman Tambah Surat Masuk
+[2025-08-28 06:08:34] Akses halaman Tambah Surat Masuk
+[2025-08-28 06:08:36] Akses halaman Tambah Surat Masuk
+[2025-08-28 06:08:39] Akses halaman Tambah Surat Masuk
+[2025-08-28 06:08:44] Akses halaman Tambah Surat Masuk
+[2025-08-28 06:08:56] Akses halaman Tambah Surat Masuk
+[2025-08-28 06:11:12] Akses halaman Tambah Surat Masuk
+[2025-08-28 09:00:44] Akses halaman Tambah Surat Masuk
+[2025-08-28 09:02:53] Akses halaman Tambah Surat Masuk
+[2025-08-28 10:00:26] Akses halaman Tambah Surat Masuk
+[2025-08-28 10:22:39] Akses halaman Tambah Surat Masuk
+[2025-08-28 10:22:50] Akses halaman Tambah Surat Masuk
+[2025-08-28 10:22:59] Akses halaman Tambah Surat Masuk
+[2025-08-28 10:27:11] Akses halaman Tambah Surat Masuk
+[2025-08-28 10:28:50] Akses halaman Tambah Surat Masuk
+[2025-08-28 10:29:15] Akses halaman Tambah Surat Masuk
+[2025-08-28 10:29:15] Tambah Surat Masuk: No Surat 123 dari asd
+[2025-08-28 10:32:01] Akses halaman Edit Surat Masuk
+[2025-08-28 10:32:08] Akses halaman Tambah Surat Masuk
+[2025-08-28 10:34:11] Akses halaman Tambah Surat Masuk

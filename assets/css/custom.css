@@ -1,0 +1,541 @@
+/* ========== 1. IMPORT FONT ========== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+/* ========== 2. VARIABEL GLOBAL ========== */
+:root{
+  --primary      : #0056b3;
+  --primary-light: #007bff;
+  --primary-soft : #e6f0ff;
+  --dark         : #002147;
+  --grey         : #f8f9fa;
+  --text         : #212529;
+  --radius       : 12px;
+  --shadow       : 0 4px 20px rgba(0,0,0,.08);
+  --shadow-hover : 0 8px 30px rgba(0,0,0,.12);
+  --transition   : .3s ease;
+}
+
+/* ========== 3. RESET DASAR ========== */
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:'Inter',sans-serif;
+  background:var(--grey);
+  color:var(--text);
+  line-height:1.6;
+}
+
+/* ========== 4. LANDING / LOGIN PAGE ========== */
+body.login-bg{
+  background:linear-gradient(135deg,var(--primary),var(--primary-light));
+  display:flex;
+  height:100vh;
+  align-items:center;
+  justify-content:center;
+}
+.login-box,
+.welcome-card{
+  background:#fff;
+  border-radius:var(--radius);
+  box-shadow:var(--shadow-hover);
+  width:100%;
+  max-width:420px;
+  padding:48px 40px;
+  transition:var(--transition);
+}
+.login-box:hover,
+.welcome-card:hover{transform:translateY(-4px);}
+.logo-ptun{width:120px;display:block;margin:0 auto 24px;}
+.form-control{
+  height:48px;
+  border-radius:var(--radius);
+  border:1px solid #ced4da;
+  padding:0 16px;
+  font-size:15px;
+  transition:var(--transition);
+}
+.form-control:focus{
+  border-color:var(--primary-light);
+  box-shadow:0 0 0 .2rem rgba(0,123,255,.25);
+}
+.btn-primary,
+.btn{
+  height:48px;
+  border-radius:var(--radius);
+  font-weight:600;
+  padding:0 20px;
+  background:var(--primary);
+  border:none;
+  transition:var(--transition);
+}
+.btn-primary:hover{background:var(--primary-light);}
+.btn-sm{height:auto;padding:6px 12px;font-size:12px;}
+.btn-outline-primary{color:var(--primary);border:1px solid var(--primary);}
+.btn-outline-primary:hover{background:var(--primary);border-color:var(--primary);color:#fff;}
+
+/* ========== 5. DASHBOARD GLOBAL ========== */
+.wrapper{display:flex;min-height:100vh;}
+.sidebar{
+  width:260px;
+  background:linear-gradient(180deg,#0d47a1,#002171); /* lebih elegan */
+  box-shadow:var(--shadow);
+  padding:24px 0;
+  position:sticky;
+  top:0;
+  height:100vh;
+  color:#fff;
+}
+.sidebar .logo{
+  text-align:center;
+  margin-bottom:24px;
+}
+.sidebar .logo img{
+  width:150px;          /* diperbesar */
+  height:150px;         /* diperbesar */
+  object-fit:contain;   /* supaya logo tidak gepeng */
+  border-radius:50%;    /* tetap bulat */
+  border:4px solid rgba(255,255,255,0.3);
+}
+.sidebar h1, .sidebar h2, .sidebar h3, .sidebar p{
+  color:#fff;
+  margin-top:8px;
+  font-weight:600;
+  font-size:16px;
+}
+.nav-link{
+  display:flex;
+  align-items:center;
+  padding:14px 24px;
+  font-weight:500;
+  color:#fff;
+  transition:var(--transition);
+  border-radius:var(--radius);
+  margin:4px 12px;
+}
+.nav-link i{margin-right:10px;font-size:1.1rem;}
+.nav-link:hover,
+.nav-link.active{background:var(--primary-soft);color:var(--primary);}
+.main{flex:1;padding:32px;}
+.page-title{font-weight:700;font-size:28px;margin-bottom:24px;color:var(--dark);}
+
+/* ========== 6. CARD STATISTIK ========== */
+.stat-card{
+  background:#fff;
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:24px;
+  transition:var(--transition);
+}
+.stat-card:hover{box-shadow:var(--shadow-hover);}
+.stat-card .count{font-size:36px;font-weight:700;color:var(--primary);}
+.stat-card .label{font-size:14px;color:#6c757d;}
+
+/* ========== 7. TABEL WRAPPER ========== */
+.table-wrapper{
+  background:#fff;
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  overflow:hidden;
+}
+.table th{background:var(--primary-soft);color:var(--dark);font-weight:600;}
+.table td,.table th{padding:16px 20px;vertical-align:middle;}
+
+/* ========== 8. BADGE STATUS ========== */
+.badge{padding:6px 10px;font-size:12px;font-weight:600;border-radius:var(--radius);}
+.badge.bg-success{background:#0d6e3b !important;}
+.badge.bg-warning{background:#ffc107 !important;color:#002147;}
+.badge.bg-danger{background:#dc3545 !important;}
+.badge.bg-secondary{background:#6c757d !important;}
+
+/* ========== 9. FORM / INPUT ========== */
+.input-group .form-control{border-right:0;border-top-right-radius:0;border-bottom-right-radius:0;}
+.input-group .btn{border-top-left-radius:0;border-bottom-left-radius:0;}
+
+/* ========== 10. LOADER & FADE-IN ========== */
+@keyframes fadeIn{from{opacity:0;transform:translateY(-20px)}to{opacity:1;transform:translateY(0)}}
+.fade-in{animation:fadeIn .6s ease}
+
+/* ========== 11. RESPONSIVE TABLE CARD ========== */
+@media(max-width:576px){
+  .stat-card .count{font-size:28px}
+  .stat-card .label{font-size:12px}
+  .table-wrapper{padding:12px}
+}
+
+/* ========== 12. SCROLLBAR KECIL ========== */
+::-webkit-scrollbar{width:6px;height:6px}
+::-webkit-scrollbar-track{background:#f1f1f1}
+::-webkit-scrollbar-thumb{background:var(--primary);border-radius:3px}
+::-webkit-scrollbar-thumb:hover{background:var(--primary-light)}
+
+/* ========== 13. SIDEBAR MOBILE TOGGLE ========== */
+@media(max-width:768px){
+  .sidebar{
+    position:fixed;
+    top:0;
+    left:-260px;
+    height:100%;
+    z-index:1050;
+    transition:left .3s;
+    box-shadow:var(--shadow-hover);
+  }
+  .sidebar.show{left:0}
+  .sidebar-backdrop{/* ========== 1. IMPORT FONT ========== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+/* ========== 2. VARIABEL GLOBAL ========== */
+:root{
+  --primary      : #0056b3;
+  --primary-light: #007bff;
+  --primary-soft : #e6f0ff;
+  --dark         : #002147;
+  --grey         : #f8f9fa;
+  --text         : #212529;
+  --radius       : 12px;
+  --shadow       : 0 4px 20px rgba(0,0,0,.08);
+  --shadow-hover : 0 8px 30px rgba(0,0,0,.12);
+  --transition   : .3s ease;
+}
+
+/* ========== 3. RESET DASAR ========== */
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:'Inter',sans-serif;
+  background:var(--grey);
+  color:var(--text);
+  line-height:1.6;
+}
+
+/* ========== 4. LANDING / LOGIN PAGE ========== */
+body.login-bg{
+  background:linear-gradient(135deg,var(--primary),var(--primary-light));
+  display:flex;
+  height:100vh;
+  align-items:center;
+  justify-content:center;
+}
+.login-box,
+.welcome-card{
+  background:#fff;
+  border-radius:var(--radius);
+  box-shadow:var(--shadow-hover);
+  width:100%;
+  max-width:420px;
+  padding:48px 40px;
+  transition:var(--transition);
+}
+.login-box:hover,
+.welcome-card:hover{transform:translateY(-4px);}
+.logo-ptun{width:120px;display:block;margin:0 auto 24px;}
+.form-control{
+  height:48px;
+  border-radius:var(--radius);
+  border:1px solid #ced4da;
+  padding:0 16px;
+  font-size:15px;
+  transition:var(--transition);
+}
+.form-control:focus{
+  border-color:var(--primary-light);
+  box-shadow:0 0 0 .2rem rgba(0,123,255,.25);
+}
+.btn-primary,
+.btn{
+  height:48px;
+  border-radius:var(--radius);
+  font-weight:600;
+  padding:0 20px;
+  background:var(--primary);
+  border:none;
+  transition:var(--transition);
+}
+.btn-primary:hover{background:var(--primary-light);}
+.btn-sm{height:auto;padding:6px 12px;font-size:12px;}
+.btn-outline-primary{color:var(--primary);border:1px solid var(--primary);}
+.btn-outline-primary:hover{background:var(--primary);border-color:var(--primary);color:#fff;}
+
+/* ========== 5. DASHBOARD GLOBAL ========== */
+.wrapper{display:flex;min-height:100vh;}
+.sidebar{
+  width:260px;
+  background:linear-gradient(180deg,#0d47a1,#002171);
+  box-shadow:var(--shadow);
+  padding:24px 0;
+  position:sticky;
+  top:0;
+  height:100vh;
+  color:#fff;
+}
+.sidebar .logo{text-align:center;margin-bottom:24px;}
+.sidebar .logo img{
+  width:150px;
+  height:150px;
+  object-fit:contain;
+  border-radius:50%;
+  border:4px solid rgba(255,255,255,0.3);
+}
+.sidebar h1, .sidebar h2, .sidebar h3, .sidebar p{
+  color:#fff;
+  margin-top:8px;
+  font-weight:600;
+  font-size:16px;
+}
+.nav-link{
+  display:flex;
+  align-items:center;
+  padding:14px 24px;
+  font-weight:500;
+  color:#fff;
+  transition:var(--transition);
+  border-radius:var(--radius);
+  margin:4px 12px;
+}
+.nav-link i{margin-right:10px;font-size:1.1rem;}
+.nav-link:hover,
+.nav-link.active{background:var(--primary-soft);color:var(--primary);}
+.main{flex:1;padding:32px;}
+.page-title{font-weight:700;font-size:28px;margin-bottom:24px;color:var(--dark);}
+
+/* ========== 6. CARD STATISTIK ========== */
+.stat-card{
+  background:#fff;
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:24px;
+  transition:var(--transition);
+}
+.stat-card:hover{box-shadow:var(--shadow-hover);}
+.stat-card .count{font-size:36px;font-weight:700;color:var(--primary);}
+.stat-card .label{font-size:14px;color:#6c757d;}
+
+/* ========== 7. TABEL WRAPPER ========== */
+.table-wrapper{
+  background:#fff;
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  overflow:hidden;
+}
+.table th{background:var(--primary-soft);color:var(--dark);font-weight:600;}
+.table td,.table th{padding:16px 20px;vertical-align:middle;}
+
+/* ========== 8. BADGE STATUS ========== */
+.badge{padding:6px 10px;font-size:12px;font-weight:600;border-radius:var(--radius);}
+.badge.bg-success{background:#0d6e3b !important;}
+.badge.bg-warning{background:#ffc107 !important;color:#002147;}
+.badge.bg-danger{background:#dc3545 !important;}
+.badge.bg-secondary{background:#6c757d !important;}
+
+/* ========== 9. FORM / INPUT ========== */
+.input-group .form-control{border-right:0;border-top-right-radius:0;border-bottom-right-radius:0;}
+.input-group .btn{border-top-left-radius:0;border-bottom-left-radius:0;}
+
+/* ========== 10. LOADER & FADE-IN ========== */
+@keyframes fadeIn{from{opacity:0;transform:translateY(-20px)}to{opacity:1;transform:translateY(0)}}
+.fade-in{animation:fadeIn .6s ease}
+
+/* ========== 11. RESPONSIVE TABLE CARD ========== */
+@media(max-width:576px){
+  .stat-card .count{font-size:28px}
+  .stat-card .label{font-size:12px}
+  .table-wrapper{padding:12px}
+}
+
+/* ========== 12. SCROLLBAR KECIL ========== */
+::-webkit-scrollbar{width:6px;height:6px}
+::-webkit-scrollbar-track{background:#f1f1f1}
+::-webkit-scrollbar-thumb{background:var(--primary);border-radius:3px}
+::-webkit-scrollbar-thumb:hover{background:var(--primary-light)}
+
+/* ========== 13. SIDEBAR MOBILE TOGGLE ========== */
+@media(max-width:768px){
+  .sidebar{
+    position:fixed;
+    top:0;
+    left:-260px;
+    height:100%;
+    z-index:1050;
+    transition:left .3s;
+    box-shadow:var(--shadow-hover);
+  }
+  .sidebar.show{left:0}
+  .sidebar-backdrop{
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    background:rgba(0,0,0,.5);
+    z-index:1040;
+  }
+}
+
+/* ========== 14. SLIDESHOW BACKGROUND LOGIN ========== */
+body.login-slideshow {
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  position: relative;
+}
+
+.bg-slideshow {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: 0;
+}
+
+.bg-slideshow figure {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0;
+  animation: fadeAnim 50s infinite;
+}
+
+/* ========== 15. USER-MANAGEMENT PAGE (a_user) ========== */
+body.user-page {
+  background: var(--grey);
+}
+
+.user-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.25rem;
+}
+
+.user-toolbar .form-control {
+  height: 38px;
+  max-width: 220px;
+}
+
+.user-toolbar .btn-sm {
+  height: 38px;
+  padding: 0 1rem;
+}
+
+.user-table .table-wrapper {
+  padding: 0;
+}
+
+.user-table .table {
+  margin: 0;
+}
+
+.user-table .table thead th {
+  border-bottom: 2px solid var(--primary-soft);
+  font-size: .875rem;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+}
+
+.user-table .table tbody tr:hover {
+  background: var(--primary-soft);
+}
+
+.user-table .badge-role {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.user-table .badge-role.super      { background: #dc3545; }
+.user-table .badge-role.admin      { background: #fd7e14; }
+.user-table .badge-role.umum       { background: #20c997; }
+.user-table .badge-role.kepegawaian{ background: #6f42c1; }
+.user-table .badge-role.hukum      { background: #0d6efd; }
+.user-table .badge-role.perkara    { background: #6c757d; }
+.user-table .badge-role.panitera   { background: #e83e8c; }
+.user-table .badge-role.sekretaris { background: #adb5bd; color: var(--dark); }
+
+.user-table .btn-group-sm .btn {
+  font-size: 11px;
+  padding: 3px 8px;
+}
+
+/* pagination (jika pakai DataTables) */
+.dataTables_info,
+.dataTables_paginate {
+  margin-top: .75rem;
+  font-size: .875rem;
+}
+
+/* ========== 16. RESPONSIVE USER TABLE ========== */
+@media (max-width: 768px) {
+  .user-toolbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .user-toolbar .form-control {
+    margin-bottom: .5rem;
+    max-width: 100%;
+  }
+}
+
+/* Waktu & gambar masing-masing slide */
+.bg-slideshow figure:nth-child(1) { animation-delay: 0s;  background-image: url('/surat_PTUN/assets/img/bg/bg1.jpg'); }
+.bg-slideshow figure:nth-child(2) { animation-delay: 10s; background-image: url('/surat_PTUN/assets/img/bg/bg2.jpg'); }
+.bg-slideshow figure:nth-child(3) { animation-delay: 20s; background-image: url('/surat_PTUN/assets/img/bg/bg3.jpg'); }
+.bg-slideshow figure:nth-child(4) { animation-delay: 30s; background-image: url('/surat_PTUN/assets/img/bg/bg4.jpg'); }
+.bg-slideshow figure:nth-child(5) { animation-delay: 40s; background-image: url('/surat_PTUN/assets/img/bg/bg5.jpg'); }
+
+/* Animasi fade */
+@keyframes fadeAnim {
+  0%   { opacity: 0; }
+  8%   { opacity: 1; }
+  20%  { opacity: 1; }
+  25%  { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+/* Overlay gelap agar form tetap terbaca */
+.overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, .45);
+  z-index: 1;
+}
+
+/* Login Card di atas overlay */
+.login-card {
+  position: relative;
+  z-index: 2;
+  max-width: 420px;
+  width: 100%;
+  padding: 2.5rem;
+  background: rgba(255, 255, 255, .85);
+  backdrop-filter: blur(6px);
+  border-radius: var(--radius);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
+  text-align: center;
+}
+
+.logo-ptun {
+  width: 110px;
+  height: 110px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 1.5rem;
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  background: #fff;
+}
+
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    background:rgba(0,0,0,.5);
+    z-index:1040;
+  }
+}

@@ -1,0 +1,16 @@
+/* Dark mode toggle */
+body.dark {
+  --bg: #121212;
+  --card: #1e1e1e;
+  --text: #e0e0e0;
+  --sidebar: linear-gradient(180deg,#002147,#001020);
+}
+body.dark .table,
+body.dark .card {
+  background: var(--card);
+  color: var(--text);
+}
+body.dark .btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+}
